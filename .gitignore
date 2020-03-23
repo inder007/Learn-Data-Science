@@ -1,0 +1,9 @@
+target/
+dependency-reduced-pom.xml
+
+
+# Intellij IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
