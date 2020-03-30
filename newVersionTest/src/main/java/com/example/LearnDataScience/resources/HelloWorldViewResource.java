@@ -8,7 +8,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-@Path("/views")
+@Path("views")
 @Produces(MediaType.TEXT_HTML)
 public class HelloWorldViewResource {
 

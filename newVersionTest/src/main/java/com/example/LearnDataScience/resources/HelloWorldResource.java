@@ -12,7 +12,7 @@ import javax.ws.rs.core.MediaType;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
-@Path("/hello-world") //tells jersey that this resource accessible at this uri
+@Path("hello-world") //tells jersey that this resource accessible at this uri
 @Produces(MediaType.APPLICATION_JSON) //lets jersey know that this resource produces representations which are application/json
 public class HelloWorldResource {
     private final String template;

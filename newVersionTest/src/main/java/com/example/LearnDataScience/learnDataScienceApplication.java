@@ -4,6 +4,7 @@ import com.example.LearnDataScience.health.TemplateHealthCheck;
 import com.example.LearnDataScience.resources.HelloWorldResource;
 import com.example.LearnDataScience.resources.HelloWorldViewResource;
 import io.dropwizard.Application;
+import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.dropwizard.views.ViewBundle;
@@ -20,6 +21,7 @@ public class learnDataScienceApplication extends Application<learnDataScienceCon
     @Override
     public void initialize(Bootstrap<learnDataScienceConfiguration> bootstrap){
         //To configure the aspects before the application is run.
+        bootstrap.addBundle(new AssetsBundle("/assets/","/"));
         bootstrap.addBundle(new ViewBundle<learnDataScienceConfiguration>(){
             @Override
             public Map<String, Map<String, String>> getViewConfiguration(learnDataScienceConfiguration configuration) {
