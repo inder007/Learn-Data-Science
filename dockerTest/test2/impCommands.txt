@@ -1,0 +1,3 @@
+ sudo docker build -t sample .
+ sudo docker run -v /home/joker/project/dockerTest/test2/run.py:/usr/src/run.py --rm -it sample bash /usr/src/script.sh /usr/src/run.py
+ 
