@@ -9,5 +9,6 @@ dependency-reduced-pom.xml
 *.iws
 .vscode/
 .classpath
+.settings
 .project
 # dockerTest/
