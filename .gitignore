@@ -8,4 +8,6 @@ dependency-reduced-pom.xml
 *.ipr
 *.iws
 .vscode/
+.classpath
+.project
 # dockerTest/
