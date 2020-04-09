@@ -7,5 +7,5 @@ dependency-reduced-pom.xml
 *.iml
 *.ipr
 *.iws
-
+.vscode/
 # dockerTest/

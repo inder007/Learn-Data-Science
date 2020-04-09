@@ -1,6 +1,7 @@
 package com.example.LearnDataScience;
 
 import com.example.LearnDataScience.health.TemplateHealthCheck;
+import com.example.LearnDataScience.resources.FormSubmit;
 import com.example.LearnDataScience.resources.HelloWorldResource;
 import com.example.LearnDataScience.resources.HelloWorldViewResource;
 import io.dropwizard.Application;
@@ -8,6 +9,7 @@ import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.setup.Bootstrap;   
 import io.dropwizard.setup.Environment;
 import io.dropwizard.views.ViewBundle;
+import io.dropwizard.forms.MultiPartBundle;
 
 import java.util.Map;
 
@@ -28,6 +30,7 @@ public class learnDataScienceApplication extends Application<learnDataScienceCon
                 return configuration.getViewRendererConfiguration();
             }
         });
+        bootstrap.addBundle(new MultiPartBundle());
 //        bootstrap.addBundle(new ViewBundle<learnDataScienceConfiguration>());
     }
 
@@ -45,5 +48,6 @@ public class learnDataScienceApplication extends Application<learnDataScienceCon
         environment.healthChecks().register("template", healthCheck);
         environment.jersey().register(resource);
         environment.jersey().register(new HelloWorldViewResource());
+        environment.jersey().register(new FormSubmit());
     }
 }
