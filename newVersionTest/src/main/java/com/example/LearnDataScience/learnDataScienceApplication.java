@@ -11,6 +11,7 @@ import io.dropwizard.setup.Environment;
 import io.dropwizard.views.ViewBundle;
 import io.dropwizard.forms.MultiPartBundle;
 
+import java.io.File;
 import java.util.Map;
 
 public class learnDataScienceApplication extends Application<learnDataScienceConfiguration> {
@@ -23,6 +24,16 @@ public class learnDataScienceApplication extends Application<learnDataScienceCon
     @Override
     public void initialize(Bootstrap<learnDataScienceConfiguration> bootstrap){
         //To configure the aspects before the application is run.
+        File file = new File("./codes");
+        // file.createNewFile();
+        if(file.isDirectory()){
+            System.out.println("File is a directory");
+        }
+        else{
+            boolean flag = new File("./codes").mkdirs();
+            // boolean flag = file.mkdir();
+            System.out.print("Directory created? " + flag);
+        }
         bootstrap.addBundle(new AssetsBundle("/assets/","/"));
         bootstrap.addBundle(new ViewBundle<learnDataScienceConfiguration>(){
             @Override

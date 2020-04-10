@@ -12,3 +12,6 @@ codes/
 .settings/
 .project
 # dockerTest/
+
+#test files
+test.html

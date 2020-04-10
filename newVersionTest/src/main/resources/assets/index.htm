@@ -1,37 +1,25 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-<!--	<link rel="stylesheet" type="text/css" href="plugin/codemirror/lib/codemirror.css">-->
-<!--	<script src="mode/javascript/javascript.js"></script>-->
-<!--	-->
-<!--	<title>CodeMirror</title>-->
-	<style>
-		textarea {
-		 width: 80%;
-		 height: 200px;
-		 padding: 15px 22px;
-		 box-sizing: border-box;
-		 border: 4px solid #ccc;
-		 border-radius: 5px;
-		 background-color: gray;
-		 resize: none;
-		}
-	</style>
+	<!-- <title>CodeMirror</title> -->
+	<script type="text/javascript" src="plugin/codemirror/lib/codemirror.js"></script>
+	<link rel="stylesheet" type="text/css" href="plugin/codemirror/lib/codemirror.css"/>
+	<script src="plugin/codemirror/mode/python/python.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="plugin/codemirror/addon/edit/closebrackets.js"></script>
+    <link href="plugin/codemirror/theme/darcula.css" rel="stylesheet"/>
+
 </head>
 <body>
 
-<!-- <textarea class="codemirror-textarea"></textarea>-->
-
-<!--	<script type="text/javascript" src="js/jquery.min.js"></script>-->
-<!--	<script type="text/javascript" src="plugin/codemirror/lib/codemirror.js"></script>-->
-<!--	<script type="text/javascript" src="js/default.js"></script>-->
-
-	<form action="/api/formSubmit" method="post" enctype="multipart/form-data">
-<!--		<input type="text" id="code-area" value="Write Code Here" style="overflow: auto"><br>-->
-<!--	<form>-->
-		<textarea name="code-area"></textarea><br>
-		<input type="submit" value="Submit">
-	</form>
+    
+    
+    <form action="/api/formSubmit" method="post" enctype="multipart/form-data">
+        <textarea id ="editor" name="code-area"></textarea>
+        <!-- <textarea name="code-area"></textarea><br> -->
+        <input type="submit" value="Submit">
+    </form>
+    <script type="text/javascript" src="js/default.js"></script>
 
 </body>
 </html> 

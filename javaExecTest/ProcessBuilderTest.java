@@ -4,8 +4,8 @@ import java.io.InputStreamReader;
 public class ProcessBuilderTest{
     public static void main(String[] args) {
         ProcessBuilder processBuilder = new ProcessBuilder();
-        processBuilder.command("/bin/bash", "-c", "sudo docker run --rm -it sample bash /usr/src/script.sh /usr/src/run.py");
-        // processBuilder.command("/bin/bash", "-c", "sudo ls /etc");
+        processBuilder.command("/bin/bash", "-c", "sudo docker run --rm sample bash /usr/src/script.sh /usr/src/run.py");
+        // processBuilder.command("/bin/bash", "-c", "sudo apt-get -y update");
         try {
             Process process = processBuilder.start();
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
@@ -14,7 +14,7 @@ public class ProcessBuilderTest{
             while ((line = reader.readLine()) != null) {
                 output.append(line + "\n");
             }
-
+            
             int exitVal = process.waitFor();
             if (exitVal == 0) {
                 System.out.println("Success!");
