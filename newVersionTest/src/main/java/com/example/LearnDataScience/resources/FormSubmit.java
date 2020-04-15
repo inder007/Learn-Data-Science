@@ -10,24 +10,24 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.glassfish.jersey.media.multipart.FormDataParam;
 
 @Path("/formSubmit")
-@Produces(MediaType.TEXT_HTML)
+@Produces(MediaType.TEXT_PLAIN)
 public class FormSubmit {
     AtomicLong atomicLong = new AtomicLong();
+
     @POST
     // Look dropwizard-forms tutorial
-    public String uploadCode(@FormDataParam("code-area") String code){
+    public String uploadCode(String code){
+        // System.out.println(code);
         FileOutputStream fout;
 //        String filename = new SimpleDateFormat("yyyyMMddHHmm'.txt'").format(new Date());
         String filename = Long.toString(atomicLong.getAndIncrement());
-        // System.out.println(code);
         try{
             fout =  new FileOutputStream("codes/" + filename);
             for(int i=0;i<code.length();i++){
                 fout.write(code.charAt(i));
-                System.out.print(code.charAt(i));
+                // System.out.print(code.charAt(i));
             }
             fout.close();
             String check = "sudo docker run -v /home/joker/project/newVersionTest/codes/"+filename+":/usr/src/run.py --rm sample bash /usr/src/script.sh /usr/src/run.py";
