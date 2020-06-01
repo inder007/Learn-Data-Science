@@ -15,3 +15,11 @@ codes/
 
 #test files
 test.html
+
+#npm files
+node_modules/
+.cache/
+dist/
+coverage/
+.vscode/
+.env

@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<!-- <title>CodeMirror</title> -->
-	<script type="text/javascript" src="plugin/codemirror/lib/codemirror.js"></script>
-	<link rel="stylesheet" type="text/css" href="plugin/codemirror/lib/codemirror.css"/>
-	<script src="plugin/codemirror/mode/python/python.js"></script>
+  <head>
+    <!-- <title>CodeMirror</title> -->
+    <script
+      type="text/javascript"
+      src="plugin/codemirror/lib/codemirror.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="plugin/codemirror/lib/codemirror.css"
+    />
+    <script src="plugin/codemirror/mode/python/python.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script src="plugin/codemirror/addon/edit/closebrackets.js"></script>
-    <link href="plugin/codemirror/theme/darcula.css" rel="stylesheet"/>
-
-</head>
-<body>
+    <link href="plugin/codemirror/theme/darcula.css" rel="stylesheet" />
+  </head>
+  <body>
     <!-- <form action="/api/formSubmit" method="post" enctype="multipart/form-data"> -->
-        <textarea id ="editor" name="code-area"></textarea>
-        <!-- <textarea name="code-area"></textarea><br> -->
-        <button onclick="formSubmit()" value="Submit">Submit</button>
-        <!-- <input type="submit" value="Submit" onclick="showAlert()"> -->
+    <textarea id="editor" name="code-area"></textarea>
+    <!-- <textarea name="code-area"></textarea><br> -->
+    <button onclick="formSubmit()" value="Submit">Submit</button>
+    <!-- <input type="submit" value="Submit" onclick="showAlert()"> -->
     <!-- </form> -->
 
     <div class="output_area">
-        <span id="output"></span>
+      <span id="output"></span>
     </div>
-    
-    <script type="text/javascript" src="js/default.js"></script>
 
-</body>
-</html> 
+    <script type="text/javascript" src="js/default.js"></script>
+  </body>
+</html>
