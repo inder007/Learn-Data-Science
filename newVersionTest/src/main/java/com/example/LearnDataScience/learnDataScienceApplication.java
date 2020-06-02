@@ -34,7 +34,7 @@ public class learnDataScienceApplication extends Application<learnDataScienceCon
             // boolean flag = file.mkdir();
             System.out.print("Directory created? " + flag);
         }
-        bootstrap.addBundle(new AssetsBundle("/assets/","/"));
+        bootstrap.addBundle(new AssetsBundle("/assets/","/", "dist/test.html"));
         bootstrap.addBundle(new ViewBundle<learnDataScienceConfiguration>(){
             @Override
             public Map<String, Map<String, String>> getViewConfiguration(learnDataScienceConfiguration configuration) {

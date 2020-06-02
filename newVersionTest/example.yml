@@ -8,3 +8,5 @@ viewRendererConfiguration:
 
 server:
   rootPath: /api
+
+

@@ -5,9 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicLong;
 
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 
@@ -18,8 +16,10 @@ public class FormSubmit {
 
     @POST
     // Look dropwizard-forms tutorial
-    public String uploadCode(String code){
-        // System.out.println(code);
+//    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String uploadCode( String code){
+        System.out.println("CHECKK!!! "+ code);
+         System.out.println(code);
         FileOutputStream fout;
 //        String filename = new SimpleDateFormat("yyyyMMddHHmm'.txt'").format(new Date());
         String filename = Long.toString(atomicLong.getAndIncrement());

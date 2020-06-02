@@ -119,6 +119,12 @@
             <version>${dropwizard.version}</version>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>io.dropwizard-bundles</groupId>-->
+<!--            <artifactId>dropwizard-configurable-assets-bundle</artifactId>-->
+<!--            <version>${dropwizard.version}</version>-->
+<!--        </dependency>-->
+
     </dependencies>
 
 
