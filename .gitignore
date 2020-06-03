@@ -14,7 +14,7 @@ codes/
 # dockerTest/
 
 #test files
-test.html
+# test.html
 
 #npm files
 node_modules/
