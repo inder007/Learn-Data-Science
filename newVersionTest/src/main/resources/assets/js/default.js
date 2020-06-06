@@ -15,6 +15,7 @@ function formSubmit() {
   $.post({
     type: "POST",
     url: "/api/formSubmit",
+    headers: { "Content-Type": "application/json" },
     data: data,
     success: function (response) {
       response = response.replace(/\n/g, "<br/>");

@@ -82,6 +82,15 @@
 <!--                </configuration>-->
 <!--            </plugin>-->
         </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources/</directory>
+                <includes>
+                    <include>assets/dist/**</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
 
     <properties>

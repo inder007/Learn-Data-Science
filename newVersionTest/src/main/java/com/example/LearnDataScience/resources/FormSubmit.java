@@ -7,6 +7,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 
 @Path("/formSubmit")
@@ -17,8 +18,8 @@ public class FormSubmit {
     @POST
     // Look dropwizard-forms tutorial
 //    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public String uploadCode( String code){
-        System.out.println("CHECKK!!! "+ code);
+    public Response uploadCode(String code){
+//        System.out.println("CHECKK!!! "+ code);
          System.out.println(code);
         FileOutputStream fout;
 //        String filename = new SimpleDateFormat("yyyyMMddHHmm'.txt'").format(new Date());
@@ -63,11 +64,14 @@ public class FormSubmit {
             else{
                 System.out.println("Error file not deleted");
             }
-            return out.toString();
+            System.out.println(out.toString());
+//            return out.toString();
+            return Response.ok(out.toString()).build();
         }
         catch(IOException | InterruptedException e){
             System.out.println(e);
-            return "Error";
+//            return "Error";
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
     }
 }

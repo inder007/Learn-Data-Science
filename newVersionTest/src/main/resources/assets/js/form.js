@@ -1,5 +1,6 @@
 import React from "react";
 import CodeMirror from "react-codemirror";
+import axios from "axios";
 // var CodeMirror = require("react-codemirror");
 require("codemirror/lib/codemirror.css");
 require("codemirror/mode/python/python.js");
@@ -21,13 +22,42 @@ class CodeForm extends React.Component {
     event.preventDefault();
     // console.log(event.target);
     console.log(this.state);
-    fetch("http://localhost:8080/api/formSubmit", {
+
+    // try {
+    //   let response = await fetch("api/formSubmit", {
+    //     method: "POST",
+    //     body: this.state.code,
+    //   });
+    //   let responseJson = await response.json();
+    //   console.log(responseJson);
+    // } catch (err) {
+    //   console.log(err);
+    // }
+
+    // axios
+    //   .post("/formSubmit", {
+    //     body: this.state.code,
+    //   })
+    //   .then((response) => console.log(response));
+
+    fetch("api/formSubmit", {
       method: "POST",
-      origin: "http://localhost:1234/",
       body: this.state.code,
-    }).then((response) => {
-      console.log(response.json());
-    });
+    })
+      .then((res) => {
+         console.log("check");
+         console.log(res);
+//        return res.json();
+        // console.log("check");
+      })
+//      .then((response) => {
+//        console.log(response);
+//         console.log(response.body);
+//      })
+      .catch((error) => {
+        console.log("error");
+        console.log(error);
+      });
   }
 
   onChange(newCode) {

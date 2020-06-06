@@ -2,10 +2,10 @@
   "name": "assets",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "",
   "scripts": {
-    "dev": "parcel ./test.html",
-    "build": "parcel build ./test.html",
+    "dev": "parcel ./test.html ",
+    "build": "parcel build ./test.html --public-url '.'",
     "format": "prettier \"./js/*.{js,html}\" \"./*.{js, html}\" --write",
     "lint": "eslint \"./js/*.{js,jsx}\" --quiet",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -27,16 +27,14 @@
     "prettier": "^2.0.5"
   },
   "dependencies": {
-    "@material-ui/core": "^4.10.1",
-    "@material-ui/icons": "^4.9.1",
     "@types/react": "^16.9.35",
     "codemirror": "^5.54.0",
     "form": "^0.2.4",
-    "jquery": "^3.5.1",
     "react": "^16.13.1",
     "react-codemirror": "^1.0.0",
     "react-codemirror2": "^7.2.0",
     "react-dom": "^16.13.1",
     "react-split-pane": "^2.0.3"
-  }
+  },
+  "proxy": "http://localhost:8080"
 }
