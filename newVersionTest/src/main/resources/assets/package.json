@@ -4,7 +4,7 @@
   "description": "",
   "main": "",
   "scripts": {
-    "dev": "parcel ./test.html ",
+    "dev": "node dev-server.js",
     "build": "parcel build ./test.html --public-url '.'",
     "format": "prettier \"./js/*.{js,html}\" \"./*.{js, html}\" --write",
     "lint": "eslint \"./js/*.{js,jsx}\" --quiet",
@@ -28,13 +28,14 @@
   },
   "dependencies": {
     "@types/react": "^16.9.35",
+    "axios": "^0.19.2",
     "codemirror": "^5.54.0",
     "form": "^0.2.4",
+    "http-proxy": "^1.18.1",
     "react": "^16.13.1",
     "react-codemirror": "^1.0.0",
     "react-codemirror2": "^7.2.0",
     "react-dom": "^16.13.1",
     "react-split-pane": "^2.0.3"
-  },
-  "proxy": "http://localhost:8080"
+  }
 }
