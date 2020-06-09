@@ -1,0 +1,41 @@
+{
+  "name": "assets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "dev": "node dev-server.js",
+    "build": "parcel build ./index.htm --public-url '.'",
+    "format": "prettier \"./js/*.{js,html}\" \"./*.{js, html}\" --write",
+    "lint": "eslint \"./js/*.{js,jsx}\" --quiet",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.1.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^7.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.20.0",
+    "parcel-bundler": "^1.12.4",
+    "prettier": "^2.0.5"
+  },
+  "dependencies": {
+    "@types/react": "^16.9.35",
+    "axios": "^0.19.2",
+    "codemirror": "^5.54.0",
+    "form": "^0.2.4",
+    "http-proxy": "^1.18.1",
+    "react": "^16.13.1",
+    "react-codemirror": "^1.0.0",
+    "react-codemirror2": "^7.2.0",
+    "react-dom": "^16.13.1",
+    "react-split-pane": "^2.0.3"
+  }
+}
