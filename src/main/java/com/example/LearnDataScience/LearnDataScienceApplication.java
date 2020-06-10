@@ -22,7 +22,7 @@ public class LearnDataScienceApplication extends Application<LearnDataScienceCon
             boolean flag = new File("./codes").mkdirs();
             System.out.print("Directory created? " + flag);
         }
-        bootstrap.addBundle(new AssetsBundle("/assets/dist","/", "test.html"));
+        bootstrap.addBundle(new AssetsBundle("/assets/dist","/", "index.html"));
 
         bootstrap.addBundle(new MultiPartBundle());
     }

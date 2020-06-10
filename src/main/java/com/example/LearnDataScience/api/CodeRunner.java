@@ -14,26 +14,25 @@ public class CodeRunner {
         this.fileName = Long.toString(atomicLong.getAndIncrement());
     }
 
-    private void storeCodeInFile(){
-        FileOutputStream fileOutputStream;
-        try {
-            fileOutputStream = new FileOutputStream("codes/" + this.fileName);
-            for (int i = 0; i < this.code.length(); i++) {
-                fileOutputStream.write(this.code.charAt(i));
+    private void storeCodeInFile() throws IOException{
+        try(FileWriter fileWriter = new FileWriter("codes/" + this.fileName)){
+            for(int i=0;i<this.code.length();i++){
+                fileWriter.write(this.code.charAt(i));
             }
-            fileOutputStream.close();
         }
         catch (IOException e){
-            System.out.println(e);
+            throw new IOException("Error while writing a file");
         }
     }
 
-    private String runDocker(){
+    private String runDocker() throws IOException, InterruptedException{
+        BufferedReader reader = null;
+        BufferedReader readerError = null;
         try {
-            String command = "docker run -v /Users/joker/Documents/project/Learn-Data-Science/" + this.fileName + ":/usr/src/run.py --rm sample bash /usr/src/script.sh /usr/src/run.py";
+            String command = "docker run -v /Users/joker/Documents/project/Learn-Data-Science/codes/" + this.fileName + ":/usr/src/run.py --rm sample bash /usr/src/script.sh /usr/src/run.py";
             Process process = Runtime.getRuntime().exec(new String[]{"/bin/bash", "-c", command});
-            BufferedReader reader = new BufferedReader(new InputStreamReader((process.getInputStream())));
-            BufferedReader readerError = new BufferedReader(new InputStreamReader((process.getErrorStream())));
+            reader = new BufferedReader(new InputStreamReader((process.getInputStream())));
+            readerError = new BufferedReader(new InputStreamReader((process.getErrorStream())));
             String line = "";
             StringBuffer out = new StringBuffer();
             StringBuffer outError = new StringBuffer();
@@ -50,10 +49,20 @@ public class CodeRunner {
             }
             return out.toString();
         }
-        catch (IOException | InterruptedException e){
-            System.out.println(e);
+        catch (IOException e){
+            throw new IOException("Exception while running docker");
         }
-        return "Error";
+        catch (InterruptedException e){
+            throw new InterruptedException("Interuppt caused while running docker");
+        }
+        finally {
+            if(reader != null){
+                reader.close();
+            }
+            if(readerError != null){
+                readerError.close();
+            }
+        }
     }
 
     private void deleteCodeFile(){
@@ -63,7 +72,7 @@ public class CodeRunner {
         }
     }
 
-    public String PythonCodeRunner(){
+    public String PythonCodeRunner() throws IOException, InterruptedException{
         storeCodeInFile();
         String output = runDocker();
         deleteCodeFile();

@@ -11,6 +11,7 @@ codes/
 .classpath
 .settings/
 .project
+.DS_Store
 # dockerTest/
 
 #test files
