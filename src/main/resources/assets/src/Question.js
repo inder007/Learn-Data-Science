@@ -1,9 +1,8 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import SplitPane from "react-split-pane";
-import CodeForm from "./form";
+import CodeForm from "./CodeForm";
 
-class CodeMirrorClass extends React.Component {
+class Question extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -22,4 +21,5 @@ class CodeMirrorClass extends React.Component {
   }
 }
 
-ReactDOM.render(<CodeMirrorClass />, document.getElementById("code"));
+// ReactDOM.render(<CodeMirrorClass />, document.getElementById("code"));
+export default Question;

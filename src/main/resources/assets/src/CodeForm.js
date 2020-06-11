@@ -1,6 +1,5 @@
 import React from "react";
-import CodeMirror from "react-codemirror";
-import axios from "axios";
+import CodeMirror from "react16-codemirror";
 require("codemirror/lib/codemirror.css");
 require("codemirror/mode/python/python.js");
 require("codemirror/addon/edit/closebrackets");
