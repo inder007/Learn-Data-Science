@@ -6,6 +6,8 @@ class AddQuestion extends React.Component {
     this.state = {
       question: "",
       solution: "",
+      testCases: "",
+      outputAnswers: "",
     };
 
     this.onChange = this.onChange.bind(this);
@@ -24,8 +26,11 @@ class AddQuestion extends React.Component {
   onSubmit(event) {
     event.preventDefault();
 
-    fetch("api/addQuestion", {
+    fetch("api/question/addQuestion", {
       method: "POST",
+      headers: new Headers({
+        "content-type": "application/json",
+      }),
       body: JSON.stringify(this.state),
     })
       .then((response) => {
@@ -62,26 +67,26 @@ class AddQuestion extends React.Component {
           />
           <br />
           <br />
-          <label htmlFor="inputCases">Write input cases</label>
+          <label htmlFor="testCases">Write input cases</label>
           <br />
           <textarea
-            id="inputCases"
+            id="testCases"
             style={textBoxStyle}
-            name="inputCases"
-            value={this.state.inputCases}
+            name="testCases"
+            value={this.state.testCases}
             onChange={this.onChange}
           />
           <br />
           <br />
-          <label htmlFor="outputAnswer">
+          <label htmlFor="outputAnswers">
             Write output answers for the input test cases
           </label>
           <br />
           <textarea
-            id="outputAnswer"
+            id="outputAnswers"
             style={textBoxStyle}
-            name="outputAnswer"
-            value={this.state.outputAnswer}
+            name="outputAnswers"
+            value={this.state.outputAnswers}
             onChange={this.onChange}
           />
           <br />
