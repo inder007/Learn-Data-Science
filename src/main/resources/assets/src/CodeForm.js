@@ -20,7 +20,8 @@ class CodeForm extends React.Component {
   submitHandler(event) {
     event.preventDefault();
 
-    fetch("api/formSubmit", {
+    // eslint-disable-next-line react/prop-types
+    fetch("api/formSubmit/", {
       method: "POST",
       body: this.state.code,
     })
@@ -61,6 +62,7 @@ class CodeForm extends React.Component {
             onChange={this.onChange}
             options={options}
           />
+          <br />
           <input type="submit" value="Submit" />
         </form>
         <div style={outStyle}>

@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Router } from "@reach/router";
+import { Router, Link } from "@reach/router";
 import Question from "./Question";
 import AddQuestion from "./AddQuestion";
 import ViewQuestions from "./ViewQuestions";
+import DeleteQuestion from "./DeleteQuestion";
 
 class App extends React.Component {
   constructor(props) {
@@ -12,11 +13,22 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router>
-        <Question path="/" />
-        <AddQuestion path="addQuestion" />
-        <ViewQuestions path="viewQuestion" />
-      </Router>
+      <div>
+        {/* <header> */}
+        <Link to="/">
+          <h1>Learn Python</h1>
+        </Link>
+        {/* </header> */}
+        <br></br>
+        <div>
+          <Router>
+            <ViewQuestions path="/" />
+            <AddQuestion path="addQuestion" />
+            <Question path="/:id" />
+            <DeleteQuestion path="deleteQuestion" />
+          </Router>
+        </div>
+      </div>
     );
   }
 }

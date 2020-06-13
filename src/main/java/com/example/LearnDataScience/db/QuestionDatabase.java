@@ -40,12 +40,12 @@ public class QuestionDatabase {
 //                        .append("question", "Print Hii!")
 //                        .append("solution", "print('Hi')");
 
-        Question question = new Question("Print Hii!", "print(hii)");
+        Question question = new Question("Printing Hii","Print Hii!", "print(hii)");
 
         collection.insertOne(question);
         System.out.println(question);
 
-        question = new Question("Print Hii!", "print(hii)");
+        question = new Question("Printing Hii","Print Hii!", "print(hii)");
         System.out.println(question.getId());
 
         collection.insertOne(question);
@@ -67,6 +67,7 @@ public class QuestionDatabase {
         Question question1 = collection.find().first();
 
         collection.deleteMany(eq("question", "Print Hii!"));
+        collection.deleteMany(eq("question", "Print HII"));
 
         cursor = collection.find().iterator();
 

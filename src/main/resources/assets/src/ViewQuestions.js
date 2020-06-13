@@ -19,6 +19,7 @@ class ViewQuestions extends React.Component {
       })
       .then((res) => {
         // console.log(res);
+        // console.log(JSON.stringify(res[0].id));
         this.setState({ questions: res, loading: false });
       });
   }
@@ -28,13 +29,49 @@ class ViewQuestions extends React.Component {
       return <div>loading...</div>;
     }
 
-    const questions = this.state.questions.map((question) => (
-      <div key={question.id}>
-        <h1>{question.question}</h1>
-      </div>
+    const questions = this.state.questions.map((question, index) => (
+      // {
+      //   <div key={question.id}>
+      // id = JSON.stringify(question.id);
+      //   return(
+      <tr key={question.questionId}>
+        <td>{index + 1}</td>
+        <td>
+          <a href={`/${question.questionId}`}>{question.questionId}</a>
+        </td>
+      </tr>
+      //   );
+
+      // }
+      //   </div>
     ));
 
-    return <div>{questions}</div>;
+    // return <div>{questions}</div>;
+
+    return (
+      <div>
+        <h2>
+          <a href="/addQuestion">Add question</a>
+        </h2>
+        <br />
+
+        <h2>
+          <a href="/deleteQuestion">Delete question</a>
+        </h2>
+        <br />
+
+        <h2>List of Questions</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Question Id</th>
+            </tr>
+          </thead>
+          <tbody>{questions}</tbody>
+        </table>
+      </div>
+    );
   }
 }
 

@@ -7,6 +7,8 @@ import com.mongodb.client.MongoCursor;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.mongodb.client.model.Filters.eq;
+
 public class QuestionDao {
 
     private MongoCollection<Question> questionCollection;
@@ -30,8 +32,33 @@ public class QuestionDao {
         return questions;
     }
 
-    public void save(Question question){
-        this.questionCollection.insertOne(question);
+    public boolean save(Question question){
+        Question isPresent = this.questionCollection.find(eq("questionId", question.getQuestionId())).first();
+
+        if(isPresent == null){
+            this.questionCollection.insertOne(question);
+            return true;
+        }
+        return false;
+    }
+
+    public Question getQuestion(String questionId){
+
+        Question question = this.questionCollection.find(eq("questionId", questionId)).first();
+
+        return question;
+
+    }
+
+    public boolean deleteQuestion(String questionId){
+        Question question = this.questionCollection.find(eq("questionId", questionId)).first();
+        if(question == null){
+            return false;
+        }
+//        System.out.println(question);
+
+        this.questionCollection.deleteOne(eq("questionId", questionId));
+        return true;
     }
 
 

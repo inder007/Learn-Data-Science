@@ -8,7 +8,10 @@ public class Question {
 
 //    @BsonId
     private ObjectId id;
-//    @BsonProperty
+
+    private String questionId;
+
+    //    @BsonProperty
     private String question;
 //    @BsonProperty
     private String solution;
@@ -21,15 +24,16 @@ public class Question {
 
     }
 
-    public Question(String question, String solution) {
+    public Question(String questionId, String question, String solution) {
 //        this._id = new ObjectId();
 //        this.question = question;
 //        this.solution = solution;
-        this(question, solution, "", "");
+        this(questionId, question, solution, "", "");
     }
 
-    public Question(String question, String solution, String testCases, String outputAnswers) {
+    public Question(String questionId, String question, String solution, String testCases, String outputAnswers) {
 //        this.id = new ObjectId();
+        this.questionId = questionId;
         this.question = question;
         this.solution = solution;
         this.testCases = testCases;
@@ -77,6 +81,14 @@ public class Question {
         this.outputAnswers = outputAnswers;
     }
 
+    public String getQuestionId() {
+        return questionId;
+    }
+
+    public void setQuestionId(String questionId) {
+        this.questionId = questionId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -103,6 +115,7 @@ public class Question {
 //        System.out.println(outputAnswers);
         return "Questions{" +
                 "questionNumber='" + this.id + '\'' +
+                "questionId='" + this.questionId + '\'' +
                 ", question='" + this.question + '\'' +
                 ", solution='" + this.solution + '\'' +
                 ", testCases='" + (this.testCases == null ? "none": this.testCases) + '\'' +

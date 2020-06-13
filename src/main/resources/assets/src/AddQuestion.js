@@ -4,6 +4,7 @@ class AddQuestion extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      questionId: "",
       question: "",
       solution: "",
       testCases: "",
@@ -34,8 +35,10 @@ class AddQuestion extends React.Component {
       body: JSON.stringify(this.state),
     })
       .then((response) => {
-        if (response.ok) {
+        if (response.status == "200") {
           alert("Submitted");
+        } else if (response.status == "204") {
+          alert("Question id already present, change this question id");
         } else {
           alert("Error occured, try again");
         }
@@ -56,6 +59,16 @@ class AddQuestion extends React.Component {
     return (
       <div>
         <form onSubmit={this.onSubmit}>
+          <label htmlFor="questionId">Write Question label</label>
+          <br />
+          <input
+            id="questionId"
+            name="questionId"
+            value={this.state.questionId}
+            onChange={this.onChange}
+          />
+          <br />
+          <br />
           <label htmlFor="question">Write Question</label>
           <br />
           <textarea
@@ -69,9 +82,8 @@ class AddQuestion extends React.Component {
           <br />
           <label htmlFor="testCases">Write input cases</label>
           <br />
-          <textarea
+          <input
             id="testCases"
-            style={textBoxStyle}
             name="testCases"
             value={this.state.testCases}
             onChange={this.onChange}
@@ -82,9 +94,8 @@ class AddQuestion extends React.Component {
             Write output answers for the input test cases
           </label>
           <br />
-          <textarea
+          <input
             id="outputAnswers"
-            style={textBoxStyle}
             name="outputAnswers"
             value={this.state.outputAnswers}
             onChange={this.onChange}
