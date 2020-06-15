@@ -46,7 +46,7 @@ class DeleteQuestion extends React.Component {
             }}
           />
           <br />
-          <input type="submit" value="SUbmit" />
+          <input type="submit" value="Submit" className="btn btn-info" />
         </form>
       </div>
     );

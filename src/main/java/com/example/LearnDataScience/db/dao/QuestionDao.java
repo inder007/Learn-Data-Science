@@ -61,5 +61,16 @@ public class QuestionDao {
         return true;
     }
 
+    public boolean modifyQuestion(String questionId, Question question){
+        Question getQuestion = this.questionCollection.find(eq("questionId", questionId)).first();
+        if(getQuestion == null){
+            return false;
+        }
+
+        this.questionCollection.replaceOne(eq("questionId", questionId), question);
+        return true;
+
+    }
+
 
 }

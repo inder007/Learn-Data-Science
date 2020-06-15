@@ -16,9 +16,9 @@ public class Question {
 //    @BsonProperty
     private String solution;
 //    @BsonProperty
-    private String testCases;
+    private String judgeCode;
 //    @BsonProperty
-    private String outputAnswers;
+    private String solutionFunction;
 
     public  Question(){
 
@@ -31,13 +31,13 @@ public class Question {
         this(questionId, question, solution, "", "");
     }
 
-    public Question(String questionId, String question, String solution, String testCases, String outputAnswers) {
+    public Question(String questionId, String question, String solution, String judgeCode, String solutionFunction) {
 //        this.id = new ObjectId();
         this.questionId = questionId;
         this.question = question;
         this.solution = solution;
-        this.testCases = testCases;
-        this.outputAnswers = outputAnswers;
+        this.judgeCode = judgeCode;
+        this.solutionFunction = solutionFunction;
     }
 
     public ObjectId getId() {
@@ -65,20 +65,20 @@ public class Question {
         this.solution = solution;
     }
 
-    public String getTestCases() {
-        return testCases;
+    public String getJudgeCode() {
+        return judgeCode;
     }
 
-    public void setTestCases(String testCases) {
-        this.testCases = testCases;
+    public void setJudgeCode(String judgeCode) {
+        this.judgeCode = judgeCode;
     }
 
-    public String getOutputAnswers() {
-        return outputAnswers;
+    public String getSolutionFunction() {
+        return solutionFunction;
     }
 
-    public void setOutputAnswers(String outputAnswers) {
-        this.outputAnswers = outputAnswers;
+    public void setSolutionFunction(String solutionFunction) {
+        this.solutionFunction = solutionFunction;
     }
 
     public String getQuestionId() {
@@ -97,13 +97,13 @@ public class Question {
         return Objects.equals(id, question1.id) &&
                 Objects.equals(question, question1.question) &&
                 Objects.equals(solution, question1.solution) &&
-                Objects.equals(testCases, question1.testCases) &&
-                Objects.equals(outputAnswers, question1.outputAnswers);
+                Objects.equals(judgeCode, question1.judgeCode) &&
+                Objects.equals(solutionFunction, question1.solutionFunction);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, question, solution, testCases, outputAnswers);
+        return Objects.hash(id, question, solution, judgeCode, solutionFunction);
     }
 
     @Override
@@ -118,8 +118,8 @@ public class Question {
                 "questionId='" + this.questionId + '\'' +
                 ", question='" + this.question + '\'' +
                 ", solution='" + this.solution + '\'' +
-                ", testCases='" + (this.testCases == null ? "none": this.testCases) + '\'' +
-                ", outputAnswers='" + (this.outputAnswers == null ? "none": this.outputAnswers) + '\'' +
+                ", judgeCode='" + (this.judgeCode == null ? "none": this.judgeCode) + '\'' +
+                ", solutionFunction='" + (this.solutionFunction == null ? "none": this.solutionFunction) + '\'' +
                 '}';
     }
 }

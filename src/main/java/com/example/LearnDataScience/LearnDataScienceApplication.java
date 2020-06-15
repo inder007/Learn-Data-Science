@@ -43,7 +43,7 @@ public class LearnDataScienceApplication extends Application<LearnDataScienceCon
         final MongoDatabase database = connection.getClient().getDatabase(configuration.getMongodbConfiguration().getDatabase());
 
         QuestionDao questionDao = new QuestionDao(database.getCollection("questions", Question.class));
-        environment.jersey().register(new FormSubmit());
+        environment.jersey().register(new FormSubmit(questionDao));
         environment.jersey().register(new QuestionResource(questionDao));
     }
 }

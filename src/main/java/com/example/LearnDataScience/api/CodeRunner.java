@@ -1,16 +1,20 @@
 package com.example.LearnDataScience.api;
 
+import com.example.LearnDataScience.core.Question;
+
 import java.io.*;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class CodeRunner {
     private String code;
     private String fileName;
+    private Question question;
     private static AtomicLong atomicLong = new AtomicLong();
 
 
-    public CodeRunner(String code) {
+    public CodeRunner(Question question, String code) {
         this.code = code;
+        this.question = question;
         this.fileName = Long.toString(atomicLong.getAndIncrement());
     }
 
@@ -44,8 +48,9 @@ public class CodeRunner {
             }
             int val = process.waitFor();
             if (val != 0) {
-                System.out.println("Error");
-                System.out.println(outError);
+//                System.out.println("Error");
+//                System.out.println(outError);
+                return outError.toString();
             }
             return out.toString();
         }
@@ -72,7 +77,14 @@ public class CodeRunner {
         }
     }
 
+    private void addUserCodeToJudgeCode(){
+        String judgeCode = this.question.getJudgeCode();
+        this.code = judgeCode.replace("#% solution %#", this.code);
+        return;
+    }
+
     public String PythonCodeRunner() throws IOException, InterruptedException{
+        addUserCodeToJudgeCode();
         storeCodeInFile();
         String output = runDocker();
         deleteCodeFile();

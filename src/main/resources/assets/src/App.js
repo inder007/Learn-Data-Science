@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Router, Link } from "@reach/router";
 import Question from "./Question";
-import AddQuestion from "./AddQuestion";
+import AddModifyQuestion from "./AddModifyQuestion";
 import ViewQuestions from "./ViewQuestions";
-import DeleteQuestion from "./DeleteQuestion";
+// import DeleteQuestion from "./DeleteQuestion";
 
 class App extends React.Component {
   constructor(props) {
@@ -16,16 +16,17 @@ class App extends React.Component {
       <div>
         {/* <header> */}
         <Link to="/">
-          <h1>Learn Python</h1>
+          <h1 id="main-page">Learn Python</h1>
         </Link>
         {/* </header> */}
         <br></br>
         <div>
           <Router>
             <ViewQuestions path="/" />
-            <AddQuestion path="addQuestion" />
+            <AddModifyQuestion path="addModifyQuestion" />
             <Question path="/:id" />
-            <DeleteQuestion path="deleteQuestion" />
+            {/* <DeleteQuestion path="deleteQuestion" /> */}
+            <AddModifyQuestion path="addModifyQuestion/:id" />
           </Router>
         </div>
       </div>

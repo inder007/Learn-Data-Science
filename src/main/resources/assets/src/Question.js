@@ -38,18 +38,24 @@ class Question extends React.Component {
       return <div>Loading..</div>;
     }
 
+    const outStyle = {
+      whiteSpace: "pre-wrap",
+    };
+
     return (
-      <div>
-        <SplitPane split="vertical">
-          {/* <div>{this.state.question.question}</div> */}
+      <div className="container" style={outStyle}>
+        {/* <SplitPane split="vertical" minSize="50%" defaultSize="50%"> */}
+        {/* <div>{this.state.question.question}</div> */}
+        <div className="codeDiv">
           <div>
             <h1>{this.state.question.questionId}</h1>
-            <h2>{this.state.question.question}</h2>
+            <p>{this.state.question.question}</p>
           </div>
-          <div>
-            <CodeForm />
-          </div>
-        </SplitPane>
+          {/* </SplitPane> */}
+        </div>
+        <div>
+          <CodeForm id={this.props.id} />
+        </div>
       </div>
     );
   }
