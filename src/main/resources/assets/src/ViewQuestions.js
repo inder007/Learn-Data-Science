@@ -1,6 +1,8 @@
 import React from "react";
 import { BsTrash } from "react-icons/bs";
 import { AiOutlineReload } from "react-icons/ai";
+import { navigate } from "@reach/router";
+import { GrAdd } from "react-icons/gr";
 
 class ViewQuestions extends React.Component {
   constructor(props) {
@@ -108,9 +110,9 @@ class ViewQuestions extends React.Component {
 
     return (
       <div id="main-page" className="container">
-        <h2>
+        {/* <h2>
           <a href="/addModifyQuestion">Add question</a>
-        </h2>
+        </h2> */}
         <br />
 
         {/* <h2>
@@ -118,7 +120,17 @@ class ViewQuestions extends React.Component {
         </h2>
         <br /> */}
 
-        <h2>List of Questions</h2>
+        <h2 className="pull-left">List of Questions</h2>
+        <button
+          className="pull-right btn btn-lg btn-primary"
+          onClick={() => navigate("/addModifyQuestion")}
+        >
+          <GrAdd /> &ensp; Add Question
+          {/* <pre>
+            <GrAdd /> Add Question
+          </pre> */}
+          {/* <a href="/addModifyQuestion">Add question</a> */}
+        </button>
         <table id="main-page" className="table table-striped">
           <thead>
             <tr>

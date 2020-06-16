@@ -77,10 +77,6 @@ class CodeForm extends React.Component {
       mode: "python",
     };
 
-    const outStyle = {
-      whiteSpace: "pre-wrap",
-    };
-
     let output = "";
     // console.log(this.state.output.toLowerCase());
     if (this.state.output.toLowerCase() == "pass\n") {
@@ -102,7 +98,7 @@ class CodeForm extends React.Component {
     // console.log(output);
 
     return (
-      <div style={outStyle}>
+      <div>
         <form onSubmit={this.submitHandler}>
           <CodeMirror
             value={this.state.code}
