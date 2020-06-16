@@ -108,11 +108,6 @@ public class Question {
 
     @Override
     public String toString() {
-//        System.out.println(id);
-//        System.out.println(question);
-//        System.out.println(solution);
-//        System.out.println(testCases);
-//        System.out.println(outputAnswers);
         return "Questions{" +
                 "questionNumber='" + this.id + '\'' +
                 "questionId='" + this.questionId + '\'' +

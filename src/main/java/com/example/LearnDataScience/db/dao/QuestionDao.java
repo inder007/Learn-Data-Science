@@ -22,7 +22,6 @@ public class QuestionDao {
         MongoCursor<Question> cursor = this.questionCollection.find().iterator();
         try{
             while(cursor.hasNext()) {
-//                System.out.println(cursor.next().toString());
                 questions.add(cursor.next());
             }
         }
@@ -55,7 +54,6 @@ public class QuestionDao {
         if(question == null){
             return false;
         }
-//        System.out.println(question);
 
         this.questionCollection.deleteOne(eq("questionId", questionId));
         return true;
