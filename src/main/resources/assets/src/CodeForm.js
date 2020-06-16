@@ -25,7 +25,6 @@ class CodeForm extends React.Component {
     fetch("api/question/" + this.props.id)
       .then((res) => res.json())
       .then((res) => {
-        // console.log(res.solutionFunction);
         this.setState({
           code: res.solutionFunction,
           solution: res.solution,
@@ -36,8 +35,6 @@ class CodeForm extends React.Component {
 
   submitHandler(event) {
     event.preventDefault();
-
-    // console.log(this.state.code);
 
     fetch("api/formSubmit/" + this.props.id, {
       method: "POST",
@@ -78,9 +75,7 @@ class CodeForm extends React.Component {
     };
 
     let output = "";
-    // console.log(this.state.output.toLowerCase());
     if (this.state.output.toLowerCase() == "pass\n") {
-      // console.log("why");
       output = (
         <div className="alert alert-success">
           <strong>Pass!</strong> You have pass all the test cases!!
@@ -95,7 +90,6 @@ class CodeForm extends React.Component {
         </div>
       );
     }
-    // console.log(output);
 
     return (
       <div>
@@ -113,29 +107,16 @@ class CodeForm extends React.Component {
           />
           <button
             type="button"
-            // value="Submit"
             className="btn btn-info btn-large pull-right"
-            // onClick={this.solutionClick}
             data-toggle="modal"
             data-target="#myModal"
           >
             Solution
           </button>
         </form>
-
-        {/* <button
-          type="submit"
-          // value="Submit"
-          className="btn btn-primary btn-large pull-right"
-        >
-          Solution
-        </button> */}
         <br />
 
-        <div>
-          {/* <p>{this.state.output}</p> */}
-          {output}
-        </div>
+        <div>{output}</div>
 
         <div id="myModal" className="modal fade" role="dialog">
           <div className="modal-dialog">

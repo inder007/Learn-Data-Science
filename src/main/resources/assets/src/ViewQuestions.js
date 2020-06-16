@@ -18,14 +18,9 @@ class ViewQuestions extends React.Component {
   componentDidMount() {
     fetch("api/question/viewAllQuestions")
       .then((response) => {
-        // return response.json();
         return response.json();
-        // console.log(response.json());
-        // return response;
       })
       .then((res) => {
-        // console.log(res);
-        // console.log(JSON.stringify(res[0].id));
         this.setState({ questions: res, loading: false });
       });
   }
@@ -40,8 +35,6 @@ class ViewQuestions extends React.Component {
       .then((response) => {
         var copy = this.state.questions;
         if (response.status == "200") {
-          // continue;
-          //   alert("Submitted");
           const index = copy.indexOf(question);
           if (index > -1) {
             copy.splice(index, 1);
@@ -65,17 +58,12 @@ class ViewQuestions extends React.Component {
     }
 
     const questions = this.state.questions.map((question, index) => (
-      // {
-      //   <div key={question.id}>
-      // id = JSON.stringify(question.id);
-      //   return(
       <tr key={question.questionId}>
         <td>{index + 1}</td>
         <td>
           <a href={`/${question.questionId}`}>{question.questionId}</a>
         </td>
         <td>
-          {/* <a href={`/deleteQuestion/${question.questionId}`}>Delete this</a> */}
           <button
             onClick={(e) => {
               window.confirm(
@@ -83,53 +71,27 @@ class ViewQuestions extends React.Component {
               ) && this.deleteHandler(e, question);
             }}
           >
-            {/* <input type="submit"> */}
-            <BsTrash
-              title="Delete Question"
-              // onClick={this.deleteHandler(question.questionId)}
-            />
+            <BsTrash title="Delete Question" />
           </button>
-          {/* </input> */}
         </td>
         <td>
           <button>
             <a href={`/addModifyQuestion/${question.questionId}`}>
               <AiOutlineReload title="Modify Question"></AiOutlineReload>
-              {/* Modify This */}
             </a>
           </button>
         </td>
       </tr>
-      //   );
-
-      // }
-      //   </div>
     ));
-
-    // return <div>{questions}</div>;
 
     return (
       <div id="main-page" className="container">
-        {/* <h2>
-          <a href="/addModifyQuestion">Add question</a>
-        </h2> */}
-        <br />
-
-        {/* <h2>
-          <a href="/deleteQuestion">Delete question</a>
-        </h2>
-        <br /> */}
-
         <h2 className="pull-left">List of Questions</h2>
         <button
           className="pull-right btn btn-lg btn-primary"
           onClick={() => navigate("/addModifyQuestion")}
         >
           <GrAdd /> &ensp; Add Question
-          {/* <pre>
-            <GrAdd /> Add Question
-          </pre> */}
-          {/* <a href="/addModifyQuestion">Add question</a> */}
         </button>
         <table id="main-page" className="table table-striped">
           <thead>

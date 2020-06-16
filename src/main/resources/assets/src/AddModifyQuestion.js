@@ -55,21 +55,12 @@ class AddModifyQuestion extends React.Component {
       .then((response) => {
         if (response.status == "200") {
           isSubmit = true;
-          // alert("Submitted");
           return response.text();
-
-          // } else if (response.status == "204") {
-          //   if (this.props.id == undefined) {
-          //     alert("This Question id already present, change this question id");
-          //   } else {
-          //     alert("This question id not found in database");
-          //   }
         } else {
           alert("Error occured, try again");
         }
       })
       .then((res) => {
-        // alert(res);
         if (isSubmit) {
           alert("Code output: " + res);
         }
@@ -94,36 +85,10 @@ class AddModifyQuestion extends React.Component {
         solutionFunction: state.solutionFunction,
       },
       () => {
-        // console.log(JSON.stringify(this.state));
         this.submitRequest();
       }
     );
-    // event.preventDefault();
-
-    // fetch("api/question/addQuestion", {
-    //   method: "POST",
-    //   headers: new Headers({
-    //     "content-type": "application/json",
-    //   }),
-    //   body: JSON.stringify(this.state),
-    // })
-    //   .then((response) => {
-    //     if (response.status == "200") {
-    //       alert("Submitted");
-    //     } else if (response.status == "204") {
-    //       alert("Question id already present, change this question id");
-    //     } else {
-    //       alert("Error occured, try again");
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
   }
-
-  // setChange(state) {
-  //   this.setState({ state });
-  // }
 
   onChange(event) {
     const target = event.target;
