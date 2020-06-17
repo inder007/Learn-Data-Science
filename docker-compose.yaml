@@ -1,0 +1,51 @@
+version: '3.7'
+
+networks:
+  mynetwork:
+    name: mynetwork
+    driver: bridge
+
+volumes:
+  shared-content:
+
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    networks:
+      - mynetwork
+
+
+  dropwizard:
+    image: openjdk:11
+    container_name: dropwizard
+    # privileged: true
+    depends_on:
+      - mongodb
+    volumes:
+      - ./target/LearnDataScience-1.0-SNAPSHOT.jar:/dropwizard/LearnDataScience-1.0-SNAPSHOT.jar
+      - ./example.yml:/dropwizard/example.yml
+      - /var/run/docker.sock:/var/run/docker.sock
+      - shared-content:/dropwizard/codes/
+    working_dir: /dropwizard
+    # command: ["java", "-jar", "LearnDataScience-1.0-SNAPSHOT.jar", "server", "example.yml"]
+    command: bash -c "apt-get update && apt-get install -y curl &&
+              curl -sSL https://get.docker.com/ | sh && java -jar LearnDataScience-1.0-SNAPSHOT.jar server example.yml"
+    ports:
+      - "8090:8080"
+      - "8091:8081"
+    networks:
+      - mynetwork
+
+
+  helper:
+    build:
+      context: ./DockerContainer/
+    container_name: helper
+    working_dir: /src
+    networks:
+      - mynetwork
+    volumes:
+      - shared-content:/src/

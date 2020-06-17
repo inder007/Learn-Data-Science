@@ -33,7 +33,8 @@ public class CodeRunner {
         BufferedReader reader = null;
         BufferedReader readerError = null;
         try {
-            String command = "docker run -v $PWD/codes/" + this.fileName + ":/usr/src/run.py --rm sample bash /usr/src/script.sh /usr/src/run.py";
+//            String command = "docker run -v $PWD/codes/" + this.fileName + ":/usr/src/run.py --rm helper python /usr/src/run.py";
+            String command = "docker run -v --rm helper python src/" + this.fileName;
             Process process = Runtime.getRuntime().exec(new String[]{"/bin/bash", "-c", command});
             reader = new BufferedReader(new InputStreamReader((process.getInputStream())));
             readerError = new BufferedReader(new InputStreamReader((process.getErrorStream())));
