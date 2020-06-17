@@ -80,9 +80,7 @@ class ViewQuestions extends React.Component {
               navigate("/addModifyQuestion/" + question.questionId);
             }}
           >
-            {/* <a href={`/addModifyQuestion/${question.questionId}`}> */}
             <AiOutlineReload title="Modify Question"></AiOutlineReload>
-            {/* </a> */}
           </button>
         </td>
       </tr>
@@ -101,7 +99,7 @@ class ViewQuestions extends React.Component {
           <thead>
             <tr>
               <th className="text-center">#</th>
-              <th className="text-center">Question Id</th>
+              <th className="text-center">Question Title</th>
               <th className="text-center">Delete Question</th>
               <th className="text-center">Modify Question</th>
             </tr>

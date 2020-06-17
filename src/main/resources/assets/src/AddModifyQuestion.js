@@ -9,7 +9,7 @@ class AddModifyQuestion extends React.Component {
       questionId: "",
       question: "",
       solution: "",
-      judgeCode: "",
+      judgeCode: "#% solution %#",
       solutionFunction: "",
       loading: this.props.id == undefined ? false : true,
     };

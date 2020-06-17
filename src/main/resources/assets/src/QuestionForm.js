@@ -53,7 +53,7 @@ class QuestionForm extends React.Component {
     return (
       <div className="container">
         <form onSubmit={this.onSubmit} className="form-group">
-          <label htmlFor="questionId">Write Question Id</label>
+          <label htmlFor="questionId">Write Question Title</label>
           <br />
           <input
             id="questionId"
@@ -76,8 +76,11 @@ class QuestionForm extends React.Component {
           <br />
           <br />
           <label htmlFor="judgeCode">
-            Provide the judging code. Put function to be implemented by user in
-            #% solution %# on new line
+            Provide the judging code. #% solution %# will be replaced with the
+            function implemented by the user before running the judge code.
+            <br />
+            Print pass if all the test cases pass, else print fail with test
+            case on which the judge code failed.
           </label>
           <br />
           <CodeMirror
@@ -92,8 +95,8 @@ class QuestionForm extends React.Component {
           <br />
           <br />
           <label htmlFor="solutionFunction">
-            Provide the function that user has to implement to run the code,
-            which will be replaced with #% solution %# in the judge code
+            Provide the function prototype that user has to implement to run the
+            code, which will be replaced with #% solution %# in the judge code.
           </label>
           <br />
           <CodeMirror
@@ -107,7 +110,11 @@ class QuestionForm extends React.Component {
           />
           <br />
           <br />
-          <label htmlFor="solution">Implement the correct function here</label>
+          <label htmlFor="solution">
+            Implement the correct solution function of this problem here. <br />
+            This will be checked on your judge code to see if it pass all the
+            test cases.
+          </label>
           <br />
           <CodeMirror
             id="solution"
