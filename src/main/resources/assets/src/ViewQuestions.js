@@ -1,7 +1,7 @@
 import React from "react";
 import { BsTrash } from "react-icons/bs";
 import { AiOutlineReload } from "react-icons/ai";
-import { navigate } from "@reach/router";
+import { navigate, Link } from "@reach/router";
 import { GrAdd } from "react-icons/gr";
 
 class ViewQuestions extends React.Component {
@@ -61,7 +61,7 @@ class ViewQuestions extends React.Component {
       <tr key={question.questionId}>
         <td>{index + 1}</td>
         <td>
-          <a href={`/${question.questionId}`}>{question.questionId}</a>
+          <Link to={`/${question.questionId}`}>{question.questionId}</Link>
         </td>
         <td>
           <button
@@ -75,10 +75,14 @@ class ViewQuestions extends React.Component {
           </button>
         </td>
         <td>
-          <button>
-            <a href={`/addModifyQuestion/${question.questionId}`}>
-              <AiOutlineReload title="Modify Question"></AiOutlineReload>
-            </a>
+          <button
+            onClick={() => {
+              navigate("/addModifyQuestion/" + question.questionId);
+            }}
+          >
+            {/* <a href={`/addModifyQuestion/${question.questionId}`}> */}
+            <AiOutlineReload title="Modify Question"></AiOutlineReload>
+            {/* </a> */}
           </button>
         </td>
       </tr>
