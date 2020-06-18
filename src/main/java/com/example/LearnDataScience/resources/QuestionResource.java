@@ -56,7 +56,7 @@ public class QuestionResource {
     public Response deleteQuestion(String questionId){
         boolean flag = this.questionDao.deleteQuestion(questionId);
         if(flag) return Response.ok("Question successfully deleted").build();
-        return Response.ok("Question not present in database").build();
+        return Response.noContent().build();
     }
 
     @POST
