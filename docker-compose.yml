@@ -5,9 +5,6 @@ networks:
     name: mynetwork
     driver: bridge
 
-volumes:
-  shared-content:
-
 services:
   mongodb:
     image: mongo
@@ -23,10 +20,7 @@ services:
     container_name: dropwizard
     depends_on:
       - mongodb
-    volumes:
-      - ./target/LearnDataScience-1.0-SNAPSHOT.jar:/dropwizard/LearnDataScience-1.0-SNAPSHOT.jar
-      - ./example.yml:/dropwizard/example.yml
-    working_dir: /dropwizard
+#    working_dir: /dropwizard
     ports:
       - "8090:8080"
       - "8091:8081"
