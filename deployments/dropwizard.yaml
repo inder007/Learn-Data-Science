@@ -1,0 +1,38 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: dropwizard-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dropwizard
+  template:
+    metadata:
+      labels:
+        app: dropwizard
+    spec:
+      containers:
+        - name: dropwizard-container
+          image: inderchera/my-web-app:v4
+          ports:
+            - containerPort: 8080
+              name: http
+            - containerPort: 8081
+              name: admin
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: dropwizard-service
+spec:
+  selector:
+    app: dropwizard
+  ports:
+    - protocol: TCP
+      targetPort: 8080
+      port: 80
+      name: http
+  type: LoadBalancer
