@@ -8,13 +8,13 @@ spec:
   ports:
     - port: 27017
       targetPort: 27017
-  # clusterIP: None
+  clusterIP: None
   selector:
-    role: mongodb
+    app: mongodb
 
 ---
 
-apiVersion: apps/v1
+apiVersion: apps/v1beta1
 kind: StatefulSet
 metadata:
   name: mongodb

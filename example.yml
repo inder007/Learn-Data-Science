@@ -2,7 +2,7 @@ server:
   rootPath: /api
 
 databaseConfiguration:
-  host: "10.39.240.71"
+  host: "mongodb.default.svc.cluster.local"
   port: 27017
   database: "test1"
 

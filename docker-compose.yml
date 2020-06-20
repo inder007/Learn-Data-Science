@@ -16,7 +16,9 @@ services:
 
 
   dropwizard:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile-alternate
     container_name: dropwizard
     depends_on:
       - mongodb

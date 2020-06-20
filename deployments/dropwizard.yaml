@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: dropwizard-container
-          image: inderchera/my-web-app:v4
+          image: inderchera/my-web-app:bigv1
           ports:
             - containerPort: 8080
               name: http
