@@ -95,3 +95,50 @@ docker build -t sample .
 
 Now you have 2 servers running, one at [localhost:5050](http://localhost:5050) and other at [localhost:8080](localhost:8080)
 You can run on port 5050 if you are changing only in reactjs app to see on the go changes.
+
+## Building Docker Image
+
+You can build the image by running following commands.
+Please change the name of the database host accordingly. 
+According to this docker-compose file, host should be set to mongodb (which is container name of mongodb set in docker-compose.yaml file).
+```
+docker-compose build
+```
+
+You can use following commands to run the containers. 
+```
+docker-compose up
+```
+
+## Deployments
+
+You can use manifest files in the deployment folders to deploy the app on kubernetes cluster (say on GCP).
+Assuming you have set up kubernetes cluster, you can run following to run your app on kubernetes cluster.
+
+First set up the persistent volume(in my case was on GCP) using
+```
+kubectl apply -f googlecloud_ssd.yaml
+```
+
+Next, you will deploy mongodb on the cluster using
+```
+kubectl apply -f mongo.yaml
+```
+
+Lastly, we will deploy our app on cluster. 
+Note that we have to provide the location of docker registry where our app is present. 
+I have the app on inderchera/learn-python. Also note that for this pod to 
+connect to mongodb pod, we have to give the host name in configuration.yaml file.
+Currently I have hardcorded the host name before building the image, by
+setting it to mongodb.default.svc.cluster.local. Replace mongodb with the serviceName 
+in mongo.yaml file, and default with the namespace you are in.
+```
+kubectl apply -f dropwizard.yaml
+```
+
+Now, check the external ip address to access the app. Run following to get the ip address.
+```
+kubectl get svc
+```
+
+You will see the ip address under external-ip column

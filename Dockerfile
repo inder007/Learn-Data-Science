@@ -20,7 +20,7 @@ if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi 
 rm -r /root/.cache
 
 ADD target/LearnDataScience-1.0-SNAPSHOT.jar /dropwizard/LearnDataScience-1.0-SNAPSHOT.jar
-ADD example.yml /dropwizard/example.yml
+ADD configuration.yml /dropwizard/configuration.yml
 
 ####
 #### OPTIONAL : 4. SET JAVA_HOME environment variable, uncomment the line below if you need it
@@ -33,4 +33,4 @@ EXPOSE 8080
 ## ADD test.py /
 ## CMD ["python", "test.py"]
 WORKDIR /dropwizard/
-CMD ["java", "-jar", "LearnDataScience-1.0-SNAPSHOT.jar", "server", "example.yml"]
+CMD ["java", "-jar", "LearnDataScience-1.0-SNAPSHOT.jar", "server", "configuration.yml"]
