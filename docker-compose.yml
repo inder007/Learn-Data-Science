@@ -1,0 +1,31 @@
+version: '3.7'
+
+networks:
+  mynetwork:
+    name: mynetwork
+    driver: bridge
+
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    networks:
+      - mynetwork
+
+
+  dropwizard:
+    build:
+      context: .
+      dockerfile: Dockerfile-alternate
+    container_name: dropwizard
+    depends_on:
+      - mongodb
+#    working_dir: /dropwizard
+    ports:
+      - "8090:8080"
+      - "8091:8081"
+    networks:
+      - mynetwork
+

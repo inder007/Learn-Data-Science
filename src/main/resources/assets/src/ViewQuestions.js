@@ -40,6 +40,10 @@ class ViewQuestions extends React.Component {
             copy.splice(index, 1);
           }
         } else if (response.status == "204") {
+          const index = copy.indexOf(question);
+          if (index > -1) {
+            copy.splice(index, 1);
+          }
           alert("This question label is not present in the database");
         } else {
           alert("Error occured, try again");
