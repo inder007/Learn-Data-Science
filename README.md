@@ -27,7 +27,7 @@ If you want to manage the website in local environment, you need to have followi
 
 ### Installing
 
-Assuming you have all the above prerequisites up and running, follow these steps to run your app in local environment.
+Assuming you have all the above prerequisites up and running, follow these steps to run the app in local environment.
 
 
 Fork or download this repo, to have your own local copy of this app to customize.
@@ -93,13 +93,13 @@ Now, build the image by following command. You may require sudo access to run fo
 docker build -t sample .
 ```
 
-Now you have 2 servers running, one at [localhost:5050](http://localhost:5050) and other at [localhost:8080](localhost:8080)
+Now you have 2 servers running, one at [localhost:5050](http://localhost:5050) and other at [localhost:8080](localhost:8080).
 You can run on port 5050 if you are changing only in reactjs app to see on the go changes.
 
 ## Building Docker Image
 
 You can build the image by running following commands.
-Please change the name of the database host accordingly. 
+Please change the name of the database host accordingly in configuration.yml file. 
 According to this docker-compose file, host should be set to mongodb (which is container name of mongodb set in docker-compose.yaml file).
 ```
 docker-compose build
