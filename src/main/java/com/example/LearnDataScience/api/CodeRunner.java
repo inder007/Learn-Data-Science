@@ -84,7 +84,7 @@ public class CodeRunner {
         return;
     }
 
-    public String PythonCodeRunner() throws IOException, InterruptedException{
+    public String pythonCodeRunner() throws IOException, InterruptedException{
         addUserCodeToJudgeCode();
         storeCodeInFile();
         String output = runDocker();

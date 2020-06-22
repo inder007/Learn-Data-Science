@@ -27,7 +27,7 @@ public class QuestionResource {
         if(flag){
             CodeRunner codeRunner = new CodeRunner(question, question.getSolution());
             try{
-                String questionStatus = codeRunner.PythonCodeRunner();
+                String questionStatus = codeRunner.pythonCodeRunner();
                 return Response.ok(questionStatus).build();
             }
             catch(IOException | InterruptedException e) {
@@ -66,7 +66,7 @@ public class QuestionResource {
         if(flag){
             CodeRunner codeRunner = new CodeRunner(question, question.getSolution());
             try{
-                String questionStatus = codeRunner.PythonCodeRunner();
+                String questionStatus = codeRunner.pythonCodeRunner();
                 return Response.ok(questionStatus).build();
             }
             catch(IOException | InterruptedException e) {

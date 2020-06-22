@@ -28,7 +28,7 @@ public class FormSubmit {
         Question question = this.questionDao.getQuestion(questionId);
         CodeRunner codeRunner = new CodeRunner(question, code);
         try {
-            String output = codeRunner.PythonCodeRunner();
+            String output = codeRunner.pythonCodeRunner();
             return Response.ok(output).build();
         }
         catch (IOException | InterruptedException e){
