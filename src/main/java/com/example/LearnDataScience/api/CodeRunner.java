@@ -19,6 +19,11 @@ public class CodeRunner {
     }
 
     private void storeCodeInFile() throws IOException{
+        File file = new File("codes");
+        if(!file.isDirectory()){
+            boolean flag = new File("codes").mkdirs();
+//            System.out.print("Directory created? " + flag);
+        }
         try(FileWriter fileWriter = new FileWriter("codes/" + this.fileName)){
             for(int i=0;i<this.code.length();i++){
                 fileWriter.write(this.code.charAt(i));
@@ -29,7 +34,7 @@ public class CodeRunner {
         }
     }
 
-    private String runDocker() throws IOException, InterruptedException{
+    String runDocker() throws IOException, InterruptedException{
         BufferedReader reader = null;
         BufferedReader readerError = null;
         try {

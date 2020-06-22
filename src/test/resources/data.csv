@@ -1,0 +1,4 @@
+id,ques,sol, jcode, solFunc, code, expected
+"1", "", "", "#% solution %#", "", "", ""
+"1", "ad", "asd", "#% solution %#", "", print("Hi"), "Hi"
+

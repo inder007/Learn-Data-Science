@@ -2,8 +2,8 @@ server:
   rootPath: /api
 
 databaseConfiguration:
-  #host: "localhost"
-  host: "mongodb.default.svc.cluster.local"
+  host: "localhost"
+#  host: "mongodb.default.svc.cluster.local"
   port: 27017
   database: "questions"
 

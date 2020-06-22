@@ -2,37 +2,30 @@ package com.example.LearnDataScience.core;
 
 import org.bson.types.ObjectId;
 
+import java.io.InvalidObjectException;
 import java.util.Objects;
 
 public class Question {
 
-//    @BsonId
     private ObjectId id;
-
     private String questionId;
-
-    //    @BsonProperty
     private String question;
-//    @BsonProperty
     private String solution;
-//    @BsonProperty
     private String judgeCode;
-//    @BsonProperty
     private String solutionFunction;
 
     public  Question(){
 
     }
 
-    public Question(String questionId, String question, String solution) {
-//        this._id = new ObjectId();
-//        this.question = question;
-//        this.solution = solution;
+    public Question(String questionId, String question, String solution) throws InvalidObjectException{
         this(questionId, question, solution, "", "");
     }
 
-    public Question(String questionId, String question, String solution, String judgeCode, String solutionFunction) {
-//        this.id = new ObjectId();
+    public Question(String questionId, String question, String solution, String judgeCode, String solutionFunction) throws InvalidObjectException{
+        if(questionId == null || questionId == ""){
+            throw new InvalidObjectException("Question title can't be empty");
+        }
         this.questionId = questionId;
         this.question = question;
         this.solution = solution;
